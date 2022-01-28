@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="mt-2">
-                <a href="/hobby" class="btn btn-success btn-sm"><i class="fas fa-step-backward pr-2"></i>Back to all hobbies</a>
+                <a href="/hobby" class="btn btn-primary btn-sm"><i class="fas fa-step-backward pr-2"></i>Back to all hobbies</a>
             </div>
         </div>
     </div>
