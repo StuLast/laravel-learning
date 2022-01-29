@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-           /**
+
+    public function hobbies() {
+        return $this->BelongsToMany('App\Hobby');
+    }
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
