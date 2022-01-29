@@ -32,7 +32,7 @@ class AddUserIdToHobbiesTable extends Migration
     {
         Schema::table('hobbies', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
-            $table->dropColumnt('user_id');
+            $table->dropColumn('user_id');
         });
     }
 }
