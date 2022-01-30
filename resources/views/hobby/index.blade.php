@@ -6,7 +6,12 @@
             <div class="col-md-11">
                 <div class="card">
                     <div class="card-header">
-                        All The Hobbies
+                        @isset($filter)
+                             Hobbies filtered by <span class="badge badge-{{ $filter->style }}">{{ $filter->name }}</span>
+                             <span class="float-right"><a href="/hobby">All hobbies</a></span>
+                        @else
+                            All The Hobbies
+                        @endisset
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
@@ -42,7 +47,6 @@
                                             <span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span>
                                         </a>
                                     @endforeach
-
                                 </li>
                             @endforeach
                         </ul>
