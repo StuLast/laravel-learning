@@ -34,7 +34,6 @@
 
                                     <span class="float-right mx-5">{{$hobby->created_at->diffForHumans()}}</span>
                                     <br/>
-
                                     @foreach($hobby->tags as $tag)
                                         <a href="/hobby/tag/{{ $tag->id }}">
                                             <span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span>

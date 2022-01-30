@@ -8,8 +8,12 @@
                     <div class="card-header">Hobby Detail</div>
                     <div class="card-body">
                         <h3> {{ $hobby->name }} </h3>
-                        <p>{{ $hobby->description }}</p>
-                        <p>{{ $hobby }}</p>
+                        <p> {{ $hobby->description }} </p>
+                        @foreach($hobby->tags as $tag)
+                            <a href="/hobby/tag/{{ $tag->id }}">
+                                <span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="mt-2">

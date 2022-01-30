@@ -15,12 +15,12 @@ class Hobby extends Model
         return $this->belongsToMany('App\Tag');
     }
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-
     protected $fillable = [
         'name', 'description', 'user_id'
     ];
