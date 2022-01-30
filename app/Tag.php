@@ -8,7 +8,7 @@ class Tag extends Model
 {
 
     public function hobbies() {
-        return $this->BelongsToMany('App\Hobby');
+        return $this->belongsToMany('App\Hobby');
     }
 
     /**
