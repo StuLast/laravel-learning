@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">Tags</div>
                 <div class="card-body">
+                    @if($tags && count($tags) > 0)
                    <ul class="list-group">
                        @foreach($tags as $tag)
                         <li class="list-group-item">
@@ -20,6 +21,9 @@
                         </li>
                        @endforeach
                    </ul>
+                   @else
+                    <div> There are no tags yet.  Click on "Create New Tag" to add tags</div>
+                   @endif
                 </div>
             </div>
             <div class="mt-2">

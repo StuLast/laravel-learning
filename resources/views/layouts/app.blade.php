@@ -44,7 +44,7 @@
                             <a href="/hobby" class="nav-link {{ Request::is('hobby*') ? 'active' : ''}}">Hobbies</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/tags" class="nav-link {{ Request::is('tags*') ? 'active' : ''}}">Tags</a>
+                            <a href="/tag" class="nav-link {{ Request::is('tag*') ? 'active' : ''}}">Tags</a>
                         </li>
                     </ul>
 
