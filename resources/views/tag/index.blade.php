@@ -11,8 +11,8 @@
                    <ul class="list-group">
                        @foreach($tags as $tag)
                         <li class="list-group-item">
+                            <a title="Edit" class="btn btn-light btn-sm ml-2" href="/tag/{{ $tag->id }}/edit"><i class="fas fa-edit"></i></a>
                             <button class="btn btn-{{$tag->style}}">{{$tag->name}}</button>
-                           <a title="Edit" class="btn btn-light btn-sm ml-2" href="/tag/{{ $tag->id }}/edit"><i class="fas fa-edit"></i> Edit</a>
                             <form style="dispay:inline;" class="float-right" action="/tag/{{$tag->id}}" method="post">
                             @csrf
                             @method('DELETE')

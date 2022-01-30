@@ -21,12 +21,13 @@ class CreateHobbyTagTable extends Migration
             $table->primary(['hobby_id','tag_id']);
 
             $table->foreign('hobby_id')
-            ->references('id')->on('hobbies')
-            ->onDelete('cascade');
+                ->references('id')->on('hobbies')
+                ->onDelete('cascade');
 
             $table->foreign('tag_id')
-            ->references('id')->on('tags')
-            ->onDelete('cascade');
+                ->references('id')->on('tags')
+                ->onDelete('cascade');
+
         });
     }
 

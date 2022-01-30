@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Hobby;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HobbyController extends Controller
 {
 
-    public function __construct () {
-        $this->middleware('auth')->except([
-            'index',
-            'show'
-        ]);
+    public function __construct ()
+    {
+        $this->middleware('auth')->except(['index',  'show']);
     }
 
     /**
@@ -22,14 +21,16 @@ class HobbyController extends Controller
      */
     public function index()
     {
-
         // $hobbies = Hobby::all();
         //$hobbies = Hobby::paginate(10);
+
         $hobbies = Hobby::orderBy('created_at', 'DESC')->paginate(10);
+
 
         return view('hobby.index')->with([
             'hobbies' => $hobbies,
         ]);
+
     }
 
     /**
@@ -63,6 +64,10 @@ class HobbyController extends Controller
         ]);
 
         $hobby->save();
+
+
+
+
         return $this->index()->with([
             'message_success' => "The hobby <b> \"$hobby->name\" </b> was created"
 
@@ -78,7 +83,9 @@ class HobbyController extends Controller
     public function show(Hobby $hobby)
     {
         return view('hobby.show')->with([
-            'hobby' => $hobby
+            'hobby' => $hobby,
+            'message_success' => Session::get('message_success'),
+            'message_warning' => Session::get('message_warning')
         ]);
     }
 
@@ -91,7 +98,9 @@ class HobbyController extends Controller
     public function edit(Hobby $hobby)
     {
         return view('hobby.edit')->with([
-            'hobby' => $hobby
+            'hobby' => $hobby,
+            'message_success' => Session::get('message_success'),
+            'message_warning' => Session::get('message_warning')
         ]);
     }
 
