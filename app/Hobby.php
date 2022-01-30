@@ -6,19 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hobby extends Model
 {
-        /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
 
     public function user() {
         return $this->belongsTo('App\User');
     }
 
     public function tags() {
-        return $this->BelongsToMany('App\Tag');
+        return $this->belongsToMany('App\Tag');
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
 
     protected $fillable = [
         'name', 'description', 'user_id'
