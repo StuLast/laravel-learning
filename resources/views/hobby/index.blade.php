@@ -20,7 +20,10 @@
                                     @endauth
 
                                     <a title="Show Details" href="/hobby/{{ $hobby->id }}">{{ $hobby->name }}</a>
-                                    <span class="mx-2">Posted by: {{ $hobby->user->name }} ({{ $hobby->user->hobbies->count() }} hobbies)</span>
+                                        <span class="mx-2">
+                                            Posted by: <a href="user/{{ $hobby->user->id }}">{{ $hobby->user->name }}</a>
+                                            ({{ $hobby->user->hobbies->count() }} hobbies)
+                                        </span>
 
                                     @auth
                                         <form style="display:inline;" class="float-right"
