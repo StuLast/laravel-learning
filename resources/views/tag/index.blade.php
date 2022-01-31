@@ -16,15 +16,26 @@
                                                href="/tag/{{ $tag->id }}/edit"><i class="fas fa-edit"></i></a>
                                         @endauth
                                         <button class="btn btn-{{$tag->style}}">{{$tag->name}}</button>
-                                        @auth
-                                            <form style="dispay:inline;" class="float-right" action="/tag/{{$tag->id}}"
-                                                  method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input type="submit" value="Delete"
-                                                       class="btn btn-small btn-outline-danger">
-                                            </form>
-                                        @endauth
+
+                                        <div class="float-right">
+                                             <span class="mr-5" style="display:inline">
+                                                 <a href="/hobby/tag/{{ $tag->id }}">Used {{$tag->hobbies->count()}} times</a>
+                                            </span>
+                                            @auth
+                                                <form
+                                                    class="float-right"
+                                                    style="display:inline;"
+                                                    action="/tag/{{$tag->id}}"
+                                                    method="post"
+                                                >
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <input type="submit" value="Delete"
+                                                           class="btn btn-small btn-outline-danger">
+                                                </form>
+                                            @endauth
+
+                                        </div>
                                     </li>
                                 @endforeach
                             </ul>
