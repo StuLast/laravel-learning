@@ -12,32 +12,43 @@
                             @method('PUT')
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control {{$errors->has('name') ? 'border-danger': ''}}" id="name" name="name" value="{{ $hobby->name ?? old('name') }}">
+                                <input type="text" class="form-control {{$errors->has('name') ? 'border-danger': ''}}"
+                                       id="name" name="name" value="{{ $hobby->name ?? old('name') }}">
                                 <small class="form-text text-danger">{!!$errors->first('name')!!}</small>
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea class="form-control {{$errors->has('description') ? 'border-danger': ''}}" id="description" name="description" rows="5">{{ $hobby->description ?? old('description') }}</textarea>
+                                <textarea class="form-control {{$errors->has('description') ? 'border-danger': ''}}"
+                                          id="description" name="description"
+                                          rows="5">{{ $hobby->description ?? old('description') }}</textarea>
                                 <small class="form-text text-danger">{!!$errors->first('description')!!}</small>
                             </div>
                             <div>
                                 <hr>
-                                <h4>Tag Manamgement</h4>
+                                <h5>Tag Management</h5>
                                 <div>
                                     <b>Tags used (click to remove):</b>
-                                    <div>
-                                        @foreach($hobby->tags as $tag)
-                                            <a href="/hobby/tag/{{ $tag->id }}">
-                                                <span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span>
-                                            </a>
-                                        @endforeach
-                                    </div>
+                                    @if($hobby->tags ->count() > 0)
+                                        <div>
+                                            @foreach($hobby->tags as $tag)
+                                                <a href="/hobby/{{$hobby->id}}/tag/{{ $tag->id }}/detach">
+                                                    <span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span>
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    @endif
                                 </div>
                                 <div>
                                     <b>Available tags (click to add): </b>
-                                    <div>
-
-                                    </div>
+                                    @if($availableTags->count() > 0)
+                                        <div>
+                                            @foreach($availableTags as $tag)
+                                                <a href="/hobby/{{$hobby->id}}/tag/{{ $tag->id }}/attach">
+                                                    <span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span>
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                             <input class="btn btn-primary mt-4" type="submit" value="Save Hobby">
