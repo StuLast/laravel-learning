@@ -20,6 +20,26 @@
                                 <textarea class="form-control {{$errors->has('description') ? 'border-danger': ''}}" id="description" name="description" rows="5">{{ $hobby->description ?? old('description') }}</textarea>
                                 <small class="form-text text-danger">{!!$errors->first('description')!!}</small>
                             </div>
+                            <div>
+                                <hr>
+                                <h4>Tag Manamgement</h4>
+                                <div>
+                                    <b>Tags used (click to remove):</b>
+                                    <div>
+                                        @foreach($hobby->tags as $tag)
+                                            <a href="/hobby/tag/{{ $tag->id }}">
+                                                <span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span>
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div>
+                                    <b>Available tags (click to add): </b>
+                                    <div>
+
+                                    </div>
+                                </div>
+                            </div>
                             <input class="btn btn-primary mt-4" type="submit" value="Save Hobby">
                         </form>
                         <a class="btn btn-primary float-right" href="/hobby"><i class="fas fa-arrow-circle-up"></i> Back</a>
