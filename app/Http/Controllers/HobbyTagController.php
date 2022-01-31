@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tag;
+use App\Hobby;
+
 
 class HobbyTagController extends Controller
 {
-    public function getFilteredHobbies($tag_id) {
+    public function getFilteredHobbies($tag_id)
+    {
         $tag = new Tag();
         $hobbies = $tag::findOrFail($tag_id)
             ->filteredHobbies()
@@ -18,6 +21,28 @@ class HobbyTagController extends Controller
         return view('hobby.index', [
             'hobbies' => $hobbies,
             'filter' => $filter
+        ]);
+    }
+
+    public function attachTag($tag_id, $hobby_id)
+    {
+        $hobby = Hobby::find($hobby_id);
+        $tag = Tag::Find($tag_id);
+
+        $hobby->tags()->attach($tag_id);
+        return back()->with([
+            'message_success' => "The Tag <b>" . $tag->name . " <b> was added."
+        ]);
+    }
+
+    public function detachTag($hobby_id, $tag_id)
+    {
+        $hobby = Hobby::find($hobby_id);
+        $tag = Tag::Find($tag_id);
+
+        $hobby->tags()->detach($tag_id);
+        return back()->with([
+            'message_success' => "The Tag <b> " . $tag->name . "<b> was removed."
         ]);
     }
 }
