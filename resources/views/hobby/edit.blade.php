@@ -25,7 +25,7 @@
                             </div>
                             <div>
                                 <hr>
-<<<<<<< HEAD
+
                                 <h5>Tag Management</h5>
                                 <div>
                                     <b>Tags used (click to remove):</b>
@@ -50,24 +50,6 @@
                                             @endforeach
                                         </div>
                                     @endif
-=======
-                                <h4>Tag Manamgement</h4>
-                                <div>
-                                    <b>Tags used (click to remove):</b>
-                                    <div>
-                                        @foreach($hobby->tags as $tag)
-                                            <a href="/hobby/tag/{{ $tag->id }}">
-                                                <span class="badge badge-{{ $tag->style }}">{{ $tag->name }}</span>
-                                            </a>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div>
-                                    <b>Available tags (click to add): </b>
-                                    <div>
-
-                                    </div>
->>>>>>> 3adc4921d8e2b8b11d3988c28f2ce1a0709cf86f
                                 </div>
                             </div>
                             <input class="btn btn-primary mt-4" type="submit" value="Save Hobby">

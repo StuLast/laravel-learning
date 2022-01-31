@@ -24,10 +24,10 @@ class HobbyTagController extends Controller
         ]);
     }
 
-    public function attachTag($tag_id, $hobby_id)
+    public function attachTag($hobby_id, $tag_id)
     {
         $hobby = Hobby::find($hobby_id);
-        $tag = Tag::Find($tag_id);
+        $tag = Tag::find($tag_id);
 
         $hobby->tags()->attach($tag_id);
         return back()->with([
@@ -38,7 +38,7 @@ class HobbyTagController extends Controller
     public function detachTag($hobby_id, $tag_id)
     {
         $hobby = Hobby::find($hobby_id);
-        $tag = Tag::Find($tag_id);
+        $tag = Tag::find($tag_id);
 
         $hobby->tags()->detach($tag_id);
         return back()->with([

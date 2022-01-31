@@ -106,7 +106,7 @@ class HobbyController extends Controller
             'hobby' => $hobby,
             'availableTags' => $availableTags,
             'message_success' => Session::get('message_success'),
-            'message_warning' => Session::get('message_warning')
+            'message_warning' => Session::get('message_warning'),
         ]);
     }
 
